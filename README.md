@@ -63,3 +63,27 @@
 ### Отчёт
 
 Скачала проект учителя на коммите 10 недели и сделала два задания поверх него. `withdraw_all` оказался простым: он переиспользует `withdraw` и ту же структуру аккаунтов. Для закрытия карточки пришлось сделать `reload()` share-аккаунта после сжигания, иначе баланс остался бы старым. Ключи и seed-фразы в репозиторий не попадают.
+
+---
+
+## Неделя 11: свои токены и CLMM-пул на Raydium (`week11/vault-dev`)
+
+Проект: состояние репозитория `0xnurda/vault-dev` на коммите «add token and Raydium CLMM pool creation script (week 11)». Контракт на этой неделе не менялся, добавился скрипт `scripts/create-clmm-pool.ts`.
+
+### Что сделано
+
+- Запустила `yarn create-pool`: скрипт создал два тестовых токена и CLMM-пул на Raydium devnet.
+- TOKEN_A: `7KxTFgMb3ZStHAy6xjMWZ5m3FiL1a63QSWFDCW1r9gph`
+- TOKEN_B: `3SBhfoCUWbMsn6siGpKuXw9eTCbYzPU4Qp6YpYyjQ3G2`
+- Конфиг комиссий: tickSpacing 60, комиссия 0.25%, стартовая цена 1.
+
+### Проверка
+
+- Pool ID: `3Rc8yBxJN8ks5Fij4W7fzHFWi2bt3kRZyetGq8hYYSiH`
+- Пул в Explorer: https://explorer.solana.com/address/3Rc8yBxJN8ks5Fij4W7fzHFWi2bt3kRZyetGq8hYYSiH?cluster=devnet
+- Транзакция создания: https://explorer.solana.com/tx/44x7sKYoWriwU7DEfXZcU8E4ziEcSMoLoCZ6Dyy2aTvZLRTMdB4heS2KPx3ZPp4UV532fCmTLU8k54gZWsVFz4BG?cluster=devnet
+- Владелец аккаунта пула: программа Raydium CLMM `DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH`.
+
+### Отчёт
+
+Скачала проект учителя на последнем коммите, поставила зависимости и запустила скрипт. Узнала, что такое CLMM: ликвидность работает только в выбранном ценовом диапазоне, поэтому комиссий там больше.
